@@ -96,7 +96,7 @@ function quit() {
  */
 function help() {
   console.log(
-    "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nhelp-->all the commands"
+    "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nlist-->see your list of tasks\nadd task--> list of tasks with your new task\nremove--> removes last task\nremove number-->remove the numberth task\nhelp-->all the commands"
   );
 }
 tasks = ["buy bread", "do the exercises"];
