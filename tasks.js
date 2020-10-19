@@ -73,6 +73,11 @@ function quit() {
   process.exit();
 }
 
+/**
+ * Lists all the possible commands
+ *
+ * @returns {void}
+ */
 function help() {
   console.log(
     "hello --> hello!\nexit or quit --> exit the application\nhelp-->all the commands"
