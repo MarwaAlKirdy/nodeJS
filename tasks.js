@@ -104,9 +104,14 @@ function help() {
   );
 }
 tasks = ["buy bread", "do the exercises"];
+done = [true, false];
 function list() {
   for (var i = 0; i < tasks.length; i++) {
-    console.log(i + 1 + "- " + tasks[i]);
+    if (done[i] == true) {
+      console.log(i + 1 + " - " + "[✓] " + tasks[i]);
+    } else {
+      console.log(i + 1 + " - " + "[ ] " + tasks[i]);
+    }
   }
 }
 
@@ -116,7 +121,7 @@ function add(x) {
   } else {
     tasks.push(x);
     for (var i = 0; i < tasks.length; i++) {
-      console.log(i + 1 + "- " + tasks[i]);
+      console.log(i + 1 + " - " + +tasks[i]);
     }
   }
 }
