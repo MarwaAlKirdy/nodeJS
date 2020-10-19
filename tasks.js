@@ -44,6 +44,9 @@ function onDataReceived(text) {
     help();
   } else if (text[0] === "list") {
     list();
+  } else if (text[0] === "add") {
+    text.shift();
+    add(text.join(" "));
   } else {
     unknownCommand(text[0]);
   }
@@ -93,11 +96,21 @@ function help() {
     "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nhelp-->all the commands"
   );
 }
-
+tasks = ["buy bread", "do the exercises"];
 function list() {
-  tasks = ["buy bread", "do the exercises"];
   for (var i = 0; i < tasks.length; i++) {
     console.log(i + 1 + "- " + tasks[i]);
+  }
+}
+
+function add(x) {
+  if (x == "") {
+    console.log("error! you should add something");
+  } else {
+    tasks.push(x);
+    for (var i = 0; i < tasks.length; i++) {
+      console.log(i + 1 + "- " + tasks[i]);
+    }
   }
 }
 
