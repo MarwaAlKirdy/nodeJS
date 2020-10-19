@@ -42,6 +42,8 @@ function onDataReceived(text) {
     hello(text[1]);
   } else if (text[0] === "help") {
     help();
+  } else if (text[0] === "list") {
+    list();
   } else {
     unknownCommand(text[0]);
   }
@@ -90,6 +92,13 @@ function help() {
   console.log(
     "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nhelp-->all the commands"
   );
+}
+
+function list() {
+  tasks = ["buy bread", "do the exercises"];
+  for (var i = 0; i < tasks.length; i++) {
+    console.log(i + 1 + "- " + tasks[i]);
+  }
 }
 
 // The following line starts the application
