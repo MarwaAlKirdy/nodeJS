@@ -47,6 +47,9 @@ function onDataReceived(text) {
   } else if (text[0] === "add") {
     text.shift();
     add(text.join(" "));
+  } else if (text[0] === "remove") {
+    text.shift();
+    remove(text);
   } else {
     unknownCommand(text[0]);
   }
@@ -111,6 +114,14 @@ function add(x) {
     for (var i = 0; i < tasks.length; i++) {
       console.log(i + 1 + "- " + tasks[i]);
     }
+  }
+}
+
+function remove(x) {
+  if (x == "") {
+    tasks.splice(tasks.length - 1, 1);
+  } else {
+    tasks.splice(x - 1, 1);
   }
 }
 
