@@ -65,6 +65,21 @@ function onDataReceived(text) {
   }
 }
 
+
+tasks = ["buy bread", "do the exercises"];
+done = [true, false];
+
+const fs = require('fs');
+try {
+  let rawdata = fs.readFileSync('database.json');
+  let d = JSON.parse(rawdata);
+  console.log(d);
+  console.log("worked");
+} catch (e) {
+  console.error(e);
+}
+
+
 /**
  * prints "unknown command"
  * This function is supposed to run when all other commands have failed
@@ -96,6 +111,14 @@ function hello(x) {
  */
 function quit() {
   console.log("Quitting now, goodbye!");
+  const fs = require('fs');
+  const data = JSON.stringify(tasks);
+  try {
+    fs.writeFileSync('database.json', data);
+    console.log('worked');
+  } catch (e) {
+    console.error(e);
+  }
   process.exit();
 }
 
@@ -109,8 +132,8 @@ function help() {
     "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nlist-->see your list of tasks\nadd task--> list of tasks with your new task\nremove--> removes last task\nremove number-->remove the numberth task\ncheck number--> checks the numberth task\nuncheck number-->uncheck the numberth tast\nhelp-->all the commands"
   );
 }
-tasks = ["buy bread", "do the exercises"];
-done = [true, false];
+
+
 function list() {
   for (var i = 0; i < tasks.length; i++) {
     if (done[i] == true) {
