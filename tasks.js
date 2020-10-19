@@ -16,6 +16,8 @@ function startApp(name) {
   console.log("--------------------");
 }
 
+
+
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -70,14 +72,46 @@ tasks = ["buy bread", "do the exercises"];
 done = [true, false];
 
 const fs = require('fs');
-try {
-  let rawdata = fs.readFileSync('database.json');
-  let d = JSON.parse(rawdata);
-  console.log(d);
-  console.log("worked");
-} catch (e) {
-  console.error(e);
+
+
+console.log(process.argv);
+if (process.argv.length > 2) {
+  const fs = require('fs');
+  const data = JSON.stringify(tasks);
+  try {
+    fs.writeFileSync(process.argv[2], data);
+    console.log('worked');
+  } catch (e) {
+    console.error(e);
+  }
+  try {
+    let rawdata = fs.readFileSync(process.argv[2]);
+    let d = JSON.parse(rawdata);
+    console.log(d);
+    console.log("worked");
+  } catch (e) {
+    console.error(e);
+  }
+} else {
+  const fs = require('fs');
+  const data = JSON.stringify(tasks);
+  try {
+    fs.writeFileSync('database.json', data);
+    console.log('worked');
+  } catch (e) {
+    console.error(e);
+  }
+  try {
+    let rawdata = fs.readFileSync('database.json');
+    let d = JSON.parse(rawdata);
+    console.log(d);
+    console.log("worked");
+  } catch (e) {
+    console.error(e);
+  }
 }
+
+
 
 
 /**
