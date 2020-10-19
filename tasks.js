@@ -88,7 +88,7 @@ function quit() {
  */
 function help() {
   console.log(
-    "hello --> hello!\nexit or quit --> exit the application\nhelp-->all the commands"
+    "hello --> hello!\nhello your_name --> hello your_name!\nexit or quit --> exit the application\nhelp-->all the commands"
   );
 }
 
